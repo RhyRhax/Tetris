@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FORTUNADO-TETRIS</title>
+    <style>
+      body {
+        background-image: url('background.jpg');
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      button:hover {
+        background-color: #bca0dc !important;
+      }
+
+      button:active {
+        background-color: #050505 !important;
+      }
+
+      .container {
+        background-color: rgba(196, 180, 180, 0.8); 
+        padding: 20px;
+        border-radius: 20px; 
+      }
+      #nextShapeCanvas {
+    position: absolute;
+    background-color: #ffffff; 
+    border: 5px solid #eee2e2; 
+    border-radius: 10px; 
+  }
+  .modal {
+  display: none; 
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+#startScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+#playButton {
+  padding: 10px 20px;
+  font-size: 24px;
+  background-color: #6cc8ec;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#playButton:hover {
+  background-color: #746b7e;
+}
+  
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div id="startScreen" class="modal">
+            <div class="modal-content">
+              <h2>Welcome to Tetris!</h2>
+              <p>Click anywhere to start the game.</p>
+              <button id="playButton">Play</button>
+            </div>
+          </div>
+      <canvas id="canvas" width="400" height="800"> </canvas>
+
+     
+      <canvas id="nextShapeCanvas" width="200" height="200"></canvas>
+<canvas id="scoreCanvas" width="200" height="200"></canvas>
+
+
+      <button
+        style="
+          width: 64px;
+          height: 64px;
+          border-radius: 50%;
+          background-color: gray;
+          border: 0px;
+        "
+        onClick="resetVars()"
+      >
+        <svg height="100%" version="1.1" viewBox="0 0 36 36" width="100%">
+          <use class="ytp-svg-shadow" xlink:href="#ytp-id-54"></use>
+          <path
+            class="ytp-svg-fill"
+            fill="#ffffff"
+            d="M 18,11 V 7 l -5,5 5,5 v -4 c 3.3,0 6,2.7 6,6 0,3.3 -2.7,6 -6,6 -3.3,0 -6,-2.7 -6,-6 h -2 c 0,4.4 3.6,8 8,8 4.4,0 8,-3.6 8,-8 0,-4.4 -3.6,-8 -8,-8 z"
+            id="ytp-id-54"
+          ></path>
+        </svg>
+      </button>
+      <img id="image" src="rotations.png" style="display: none" />
+      <div id="gameOverModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeModal">&times;</span>
+          <h2>Game Over!</h2>
+          <p>Your Score: <span id="finalScore"></span></p>
+        </div>
+      <script src="script.js"></script>
+      
+    </button>
+    
+    </div>
+    
+  </body>
+</html>
